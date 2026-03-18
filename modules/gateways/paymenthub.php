@@ -34,13 +34,6 @@ function paymenthub_config(): array
             'Type' => 'System',
             'Value' => 'PaymentHub - Crypto Payments',
         ],
-        'apiUrl' => [
-            'FriendlyName' => 'API URL',
-            'Type' => 'text',
-            'Size' => '60',
-            'Default' => 'https://www.paymenthub.net',
-            'Description' => 'Your PaymentHub instance URL (e.g. https://www.paymenthub.net).',
-        ],
         'apiKey' => [
             'FriendlyName' => 'API Key',
             'Type' => 'password',
@@ -81,7 +74,7 @@ function paymenthub_config(): array
  */
 function paymenthub_link($params): string
 {
-    $apiUrl = rtrim($params['apiUrl'] ?: 'https://www.paymenthub.net', '/');
+    $apiUrl = "https://www.paymenthub.net";
     $apiKey = $params['apiKey'];
     $coin = $params['coin'] ?: 'ALL';
     $fiatCurrency = $params['fiatCurrency'] ?: 'USD';

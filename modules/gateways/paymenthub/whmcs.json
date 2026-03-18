@@ -1,0 +1,36 @@
+{
+    "schema": "1.0",
+    "type": "whmcs-gateways",
+    "name": "paymenthub",
+    "license": "MIT",
+    "category": "gateway",
+    "description": {
+        "name": "PaymentHub - Crypto Payments",
+        "tagline": "Accept Bitcoin (BTC) and USDT (TRC-20) payments in WHMCS via PaymentHub.",
+        "long": "PaymentHub Gateway for WHMCS allows hosting companies and businesses to accept cryptocurrency payments (Bitcoin and USDT TRC-20) directly on their WHMCS invoices. Features automatic invoice marking via webhooks, HMAC-SHA256 signature verification, duplicate transaction protection, and a multi-coin checkout option.",
+        "features": [
+            "Accept Bitcoin (BTC) and USDT (TRC-20) payments",
+            "Automatic invoice marking via secure webhooks",
+            "HMAC-SHA256 webhook signature verification",
+            "Multi-coin mode lets customers choose their preferred crypto",
+            "Duplicate transaction detection and amount validation",
+            "Full transaction logging in WHMCS Gateway Log"
+        ]
+    },
+    "logo": {
+        "filename": "logo.png"
+    },
+    "support": {
+        "homepage": "https:\/\/www.paymenthub.net\/",
+        "learn_more": "https:\/\/www.paymenthub.net\/docs\/api",
+        "email": "alamin@asrtech.bd",
+        "support_url": "https:\/\/github.com\/asrtech-bd\/PaymentHub-Gateway-For-WHMCS\/issues",
+        "docs_url": "https:\/\/github.com\/asrtech-bd\/PaymentHub-Gateway-For-WHMCS#readme"
+    },
+    "authors": [
+        {
+            "name": "ASR Tech",
+            "homepage": "https:\/\/www.asrtech.bd\/"
+        }
+    ]
+}
