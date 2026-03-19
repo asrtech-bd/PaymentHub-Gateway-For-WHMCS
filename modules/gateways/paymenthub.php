@@ -12,7 +12,7 @@ if (!defined('WHMCS')) {
 }
 
 define('PAYMENTHUB_MODULE_VERSION', '1.3.0');
-define('PAYMENTHUB_GITHUB_REPO', 'PaymentHubBD/whmcs-paymenthub');
+define('PAYMENTHUB_GITHUB_REPO', 'asrtech-bd/PaymentHub-Gateway-For-WHMCS');
 define('PAYMENTHUB_GITHUB_API', 'https://api.github.com/repos/' . PAYMENTHUB_GITHUB_REPO . '/releases/latest');
 
 /**
@@ -70,12 +70,10 @@ function paymenthub_config(): array
         ],
         'callbackUrl' => [
             'FriendlyName' => 'Webhook Callback URL',
-            'Type' => 'yesno',
             'Description' => paymenthub_renderCallbackUrl(),
         ],
         'moduleUpdate' => [
             'FriendlyName' => 'Module Updates',
-            'Type' => 'yesno',
             'Description' => paymenthub_renderUpdatePanel(),
         ],
     ];
@@ -121,7 +119,14 @@ function paymenthub_renderUpdatePanel(): string
 {
     $currentVersion = PAYMENTHUB_MODULE_VERSION;
     $ajaxUrl = 'modules/gateways/paymenthub/update.php';
-
+    
+    $systemUrl = \WHMCS\Config\Setting::getValue('SystemURL')
+        ?? \WHMCS\Config\Setting::getValue('SystemSSLURL')
+        ?? '';
+    $systemUrl = rtrim($systemUrl, '/');
+    $updateUrl = $systemUrl . '/' . $ajaxUrl;
+    
+    
     return '<div id="ph-update-panel" style="margin-top:4px;">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
             <span style="font-size:13px;">Installed: <strong>v' . $currentVersion . '</strong></span>
@@ -136,7 +141,7 @@ function paymenthub_renderUpdatePanel(): string
         <div id="ph-changelog" style="display:none;margin-top:8px;padding:10px;background:#f9f9f9;border:1px solid #e5e7eb;border-radius:4px;font-size:12px;max-height:150px;overflow-y:auto;"></div>
     </div>
     <script>
-    var phAjaxUrl="' . $ajaxUrl . '";
+    var phAjaxUrl="' . $updateUrl . '";
     function phSetStatus(msg,color){document.getElementById("ph-update-status").innerHTML=\'<span style="color:\'+color+\'">\'+msg+\'</span>\';}
     function phCheckUpdate(){
         var btn=document.getElementById("ph-check-btn");
@@ -382,7 +387,7 @@ function paymenthub_removeDir(string $dir): void
  */
 function paymenthub_link($params): string
 {
-    $apiUrl = "https://www.paymenthub.net");
+    $apiUrl = "https://www.paymenthub.net";
     $apiKey = $params['apiKey'];
     $coin = $params['coin'] ?: 'ALL';
     $fiatCurrency = $params['fiatCurrency'] ?: 'USD';
