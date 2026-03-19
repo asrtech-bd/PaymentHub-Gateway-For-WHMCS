@@ -11,7 +11,7 @@ if (!defined('WHMCS')) {
     die('This file cannot be accessed directly.');
 }
 
-define('PAYMENTHUB_MODULE_VERSION', '1.3.0');
+define('PAYMENTHUB_MODULE_VERSION', '1.1.0');
 define('PAYMENTHUB_GITHUB_REPO', 'asrtech-bd/PaymentHub-Gateway-For-WHMCS');
 define('PAYMENTHUB_GITHUB_API', 'https://api.github.com/repos/' . PAYMENTHUB_GITHUB_REPO . '/releases/latest');
 
