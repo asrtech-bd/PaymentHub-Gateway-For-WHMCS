@@ -66,7 +66,7 @@ function paymenthub_config(): array
             'Type' => 'text',
             'Size' => '5',
             'Default' => 'USD',
-            'Description' => 'Invoice currency code (e.g. USD, EUR, BDT).',
+            'Description' => 'Invoice currency code (e.g. USD, EUR, GBP).',
         ],
         'callbackUrl' => [
             'FriendlyName' => 'Webhook Callback URL',
